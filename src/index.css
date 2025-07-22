@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🌐 Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 4px;
+}
+@media (min-width: 640px) {
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+}
+@media (min-width: 1024px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+}
+::-webkit-scrollbar-thumb {
+  background: #ff1e1e;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+/* ✨ Smooth Transitions & Font Rendering */
+html {
+  scroll-behavior: smooth;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+@media (min-width: 640px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* 🔥 Title/Heading Font */
+h1, h2, h3, .fancy-title {
+  font-family: 'Pacifico', cursive;
+  letter-spacing: 0.5px;
+  font-size: 1.5rem;
+}
+@media (min-width: 640px) {
+  h1, h2, h3, .fancy-title {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+}
+
+/* 🌀 Word Reveal Animation */
+.word-reveal {
+  display: inline-block;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+.word-reveal:nth-child(1) { animation-delay: 0.1s; }
+.word-reveal:nth-child(2) { animation-delay: 0.2s; }
+.word-reveal:nth-child(3) { animation-delay: 0.3s; }
+
+/* ✨ Keyframes */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes flow {
+  0% { background-position: 0% 0; }
+  100% { background-position: 150% 0; }
+}
+
+/* 🌟 Glowing Hover Effect */
+.glow-hover:hover {
+  box-shadow: 0 0 8px #ff1e1e, 0 0 15px #ff1e1e;
+  transition: all 0.25s ease;
+}
+
+/* 🔲 Parallax & Hero Blob Background Layering */
+.hero-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -10;
+  pointer-events: none;
+}
+
+/* 🌊 Liquid Effect */
+.liquid-effect {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #4b0082, #00b7eb, #ff00ff, #4b0082);
+  background-size: 150% 100%;
+  animation: flow 10s linear infinite;
+  opacity: 0.2;
+}
+@media (min-width: 1024px) {
+  .liquid-effect {
+    background-size: 200% 100%;
+    animation: flow 12s linear infinite;
+  }
+}
+
+/* 🌫️ Grainy Effect */
+.grainy-effect {
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/noise.png');
+  background-repeat: repeat;
+  opacity: 0.08;
+  pointer-events: none;
+}
+@media (min-width: 640px) {
+  .grainy-effect {
+    opacity: 0.1;
+  }
+}
+
+/* 🎯 Custom Cursor (Disabled on Mobile) */
+#cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease;
+}
+@media (max-width: 640px) {
+  #cursor {
+    display: none;
+  }
+}
+
+/* 🔁 Animate on Scroll (for sections) */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* 🎞️ 3D Roll Animation Smoothness */
+section {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transition: box-shadow 0.3s ease, transform 0.8s ease;
+  will-change: transform, opacity;
+}
+
+/* 🧲 Vertical Scroll Snap Sections */
+.snap-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.snap-section {
+  scroll-snap-align: start;
+  height: 100vh;
+}
